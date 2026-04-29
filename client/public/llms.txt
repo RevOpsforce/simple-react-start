@@ -1,0 +1,64 @@
+# Opsforce.ai
+
+> Opsforce.ai is a go-to-market operations services firm. We design, build, and govern the data, workflows, and systems inside enterprise GTM environments — the execution layer that determines whether AI agents, automation, and revenue strategies actually work in production.
+
+## What Opsforce.ai Does
+
+Opsforce.ai delivers project-based GTM operations work for enterprise B2B companies. We embed directly into client environments and implement changes across CRM architecture, workflow design, data governance, agent deployment, and system integration. We are operators, not advisors — every engagement produces logic that lives in the client's systems, not in a strategy deck.
+
+Our work is organized around eight core capabilities:
+
+- **Workflow Architecture** — Design and implementation of lead routing, handoff logic, SLA enforcement, and lifecycle stage transitions inside Salesforce, HubSpot, and Microsoft Dynamics 365.
+- **Data Foundation** — CRM data model rebuild, deduplication, enrichment workflows, and source-of-truth configuration across the GTM stack.
+- **Governance & Rules** — Ownership rules, validation controls, monitoring systems, and accountability structures that prevent GTM systems from degrading after implementation.
+- **System Integration Layer** — Intentional integrations between CRM, marketing automation, sales engagement, and data tools using Workato, Zapier, Make, and native APIs.
+- **Reporting & Attribution** — Multi-touch attribution models, pipeline generation dashboards, and forecasting inputs in Tableau, Looker, and Power BI.
+- **Automation & Orchestration** — Systematic replacement of manual handoffs, data entry, and QA processes with cross-tool workflow automation.
+- **Agent Deployment** — Design, build, and production deployment of governed agents for lead scoring, pipeline enrichment, outreach personalization, and revenue forecasting.
+- **Customer Lifecycle Management** — CS handoff logic, renewal triggers, and expansion signal routing inside Gainsight, ChurnZero, and Salesforce Service Cloud.
+
+## Who We Work With
+
+Opsforce.ai works with enterprise B2B companies — typically $50M+ in revenue — where the GTM execution layer is a constraint on growth. Client profiles include:
+
+- PE-backed SaaS companies under board mandate to demonstrate GTM efficiency and pipeline predictability
+- High-growth public companies scaling execution without proportional headcount or operational debt
+- Enterprise organizations deploying AI agents into revenue workflows that require a clean data and governance foundation
+
+## The Opsforce Execution Method
+
+Opsforce.ai delivers work through a four-phase framework:
+
+1. **Scope** — Structured discovery to map the current execution state, identify revenue leaks, and produce a prioritized fix roadmap.
+2. **Architect & Build** — Implementation in 30-day sprints: CRM restructuring, workflow logic, agent deployment, attribution configuration, data contract enforcement.
+3. **Govern** — Monitoring rules, logic drift prevention, accountability assignment, and compliance documentation.
+4. **Expand** — Agent production rollout, revenue signal expansion, new channel orchestration.
+
+## Technology Stack
+
+Opsforce.ai is technology-agnostic and works within the client's existing stack. Systems we work with include:
+
+**CRM:** Salesforce, HubSpot, Microsoft Dynamics 365  
+**Marketing Automation:** Marketo, Pardot, Braze, Customer.io, Intercom  
+**Sales Engagement:** Outreach, Salesloft, Apollo.io  
+**Intelligence & Intent:** Gong, ZoomInfo, Clearbit, 6sense, Demandbase  
+**AI & Automation:** OpenAI, Anthropic, Clay, Zapier, Make, Workato, Jasper  
+**Analytics:** Tableau, Power BI, Looker, Domo  
+**Customer Success:** Gainsight, ChurnZero, Totango  
+**RevOps & Routing:** LeanData, Chili Piper  
+
+## Key Definitions
+
+**GTM Execution:** The operational layer of a go-to-market organization — the workflows, data structures, system logic, and governance rules that determine whether strategy is actually carried out.
+
+**GTM Execution Layer:** The interconnected system of CRM logic, workflow automation, data pipelines, and governance rules that governs how a go-to-market organization operates.
+
+**Agent Deployment (GTM):** The design, build, and production deployment of governed automation agents into live revenue workflows.
+
+**GTM Governance:** The set of ownership rules, validation controls, monitoring systems, and accountability structures that prevent GTM systems from degrading after implementation.
+
+## Contact
+
+- Website: https://opsforce.ai
+- Email: hello@opsforce.ai
+- LinkedIn: https://www.linkedin.com/company/opsforceai

@@ -1,0 +1,272 @@
+/* 
+ * Opsforce.ai — Enriched Enterprise Design System v3
+ *
+ * EXPANDED PALETTE (color-theory driven, multi-color for visual interest):
+ *   Deep Navy    #0A1628  — Primary dark, trust/authority anchor
+ *   Navy Mid     #0F2040  — Dark section backgrounds
+ *   Navy Light   #162B52  — Hover states, card elevation
+ *   Electric Blue #2563EB — Primary CTA, links — AI/tech forward motion
+ *   Steel Blue   #4A90B8  — Data labels, supporting accent (replaces neon cyan)
+ *   Amber Gold   #F59E0B  — Warm accent, energy, contrast against navy
+ *   Amber Light  #FCD34D  — Highlight moments, number callouts
+ *   Slate Indigo #4F5F8A  — Depth accent, methodology phases (replaces gaming violet)
+ *   Muted Teal   #2D7A6E  — Success states, governance (replaces neon emerald)
+ *   Cool White   #F0F4FF  — Light canvas (blue-tinted)
+ *   Off White    #E8EDF8  — Section alternates
+ *   Slate        #64748B  — Secondary body text
+ *   Light Slate  #94A3B8  — Muted text on dark
+ *
+ * TYPOGRAPHY: Barlow Condensed 900 (display) + Barlow 400/500 (body) + Space Mono (labels)
+ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+:root {
+  --radius: 0.2rem;
+  --background: oklch(0.96 0.008 240);
+  --foreground: oklch(0.13 0.04 240);
+  --card: oklch(0.98 0.005 240);
+  --card-foreground: oklch(0.13 0.04 240);
+  --popover: oklch(0.98 0.005 240);
+  --popover-foreground: oklch(0.13 0.04 240);
+  --primary: oklch(0.50 0.22 260);
+  --primary-foreground: oklch(0.98 0.005 240);
+  --secondary: oklch(0.91 0.012 240);
+  --secondary-foreground: oklch(0.13 0.04 240);
+  --muted: oklch(0.91 0.012 240);
+  --muted-foreground: oklch(0.50 0.02 240);
+  --accent: oklch(0.72 0.18 200);
+  --accent-foreground: oklch(0.13 0.04 240);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.85 0.015 240);
+  --input: oklch(0.88 0.012 240);
+  --ring: oklch(0.50 0.22 260);
+  --chart-1: oklch(0.50 0.22 260);
+  --chart-2: oklch(0.72 0.18 200);
+  --chart-3: oklch(0.75 0.18 80);
+  --chart-4: oklch(0.55 0.22 295);
+  --chart-5: oklch(0.65 0.18 160);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+      max-width: 1400px;
+    }
+  }
+
+  /* ─── Unified Type Scale ─────────────────────────────────────────────────
+   * --ts-xs    : labels, tags, captions
+   * --ts-sm    : secondary body, nav links
+   * --ts-base  : primary body copy
+   * --ts-lg    : lead paragraphs, card descriptions
+   * --ts-xl    : card titles, H3
+   * --ts-2xl   : section sub-headings
+   * --ts-h2    : section headings (H2)
+   * --ts-h1    : hero display (H1) — uses clamp
+   * ─────────────────────────────────────────────────────────────────────── */
+  :root {
+    /* Mobile-first scale (base) */
+    --ts-xs:   0.75rem;    /* 12px — labels, tags, captions */
+    --ts-sm:   0.875rem;   /* 14px — secondary body, nav */
+    --ts-base: 1rem;       /* 16px — primary body */
+    --ts-lg:   1.125rem;   /* 18px — lead paragraphs */
+    --ts-xl:   1.25rem;    /* 20px — card titles, H3 */
+    --ts-2xl:  1.5rem;     /* 24px — sub-headings */
+    --ts-h2:   clamp(1.75rem, 5vw, 3.5rem);
+    --ts-h1:   clamp(2.25rem, 7vw, 6.5rem);
+  }
+
+  /* Tablet and up — scale up slightly */
+  @media (min-width: 768px) {
+    :root {
+      --ts-xs:   0.8125rem;  /* 13px */
+      --ts-sm:   0.9375rem;  /* 15px */
+      --ts-base: 1.0625rem;  /* 17px */
+      --ts-lg:   1.1875rem;  /* 19px */
+      --ts-xl:   1.375rem;   /* 22px */
+      --ts-2xl:  1.625rem;   /* 26px */
+    }
+  }
+
+  .font-display {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 0.92;
+  }
+
+  .font-label {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--ts-xs);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: var(--ts-xs);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .ticker-track {
+    animation: ticker 30s linear infinite;
+    display: flex;
+    width: max-content;
+  }
+
+  .ticker-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .delay-100 { animation-delay: 0.1s; opacity: 0; }
+  .delay-200 { animation-delay: 0.2s; opacity: 0; }
+  .delay-300 { animation-delay: 0.3s; opacity: 0; }
+  .delay-400 { animation-delay: 0.4s; opacity: 0; }
+  .delay-500 { animation-delay: 0.5s; opacity: 0; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.035;
+  }
+
+  /* Gradient text */
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #2563EB 0%, #4A90B8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-amber {
+    background: linear-gradient(135deg, #F59E0B 0%, #FCD34D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-text-violet {
+    background: linear-gradient(135deg, #4F5F8A 0%, #6B7DB3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
