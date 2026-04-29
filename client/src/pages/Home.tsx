@@ -318,7 +318,7 @@ function Hero() {
         <div className="mb-6 animate-fade-up">
           <span className="section-label" style={{ color:C.cyan, borderColor:"rgba(6,182,212,0.4)", fontFamily:"'Space Mono',monospace" }}>
             <span className="w-1.5 h-1.5 rounded-full bg-current inline-block animate-pulse mr-2"/>
-            GTM Operations · Data · Workflows · Agent Deployment · Governance
+            GTM Operations: Data · Workflows · Agent Deployment · Governance
           </span>
         </div>
 
