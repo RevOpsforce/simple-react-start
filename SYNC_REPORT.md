@@ -20,10 +20,13 @@ This report documents the sync operation that copied the contents of
 
 ## Backup Created
 
-| Type           | Name                                 |
-|----------------|--------------------------------------|
-| Backup branch  | `backup/pre-opsforce-sync`           |
-| Backup tag     | `backup/pre-opsforce-sync-tag`       |
+| Type           | Name                                  | Commit SHA                               | Status         |
+|----------------|---------------------------------------|------------------------------------------|----------------|
+| Backup branch  | `backup/pre-opsforce-sync`            | `352a8f07737b4151cb23aad385d9c2b24b56651c` | Created locally |
+| Backup tag     | `backup/pre-opsforce-sync-tag`        | `352a8f07737b4151cb23aad385d9c2b24b56651c` | Created locally |
+| Sync commit    | `copilot/copy-contents-from-source-repo` | `6c803b0` (pushed to remote)             | ✅ Pushed       |
+
+Note: The backup branch and tag both point to the exact pre-sync commit `352a8f0` and are preserved in the local Git history. The pre-sync state is also fully recoverable from the Git log.
 
 ---
 
