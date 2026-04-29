@@ -1,8 +1,6 @@
 {
   "include": [
-    "client/src/**/*",
-    "shared/**/*",
-    "server/**/*"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules",
@@ -11,31 +9,29 @@
     "**/*.test.ts"
   ],
   "compilerOptions": {
-    "incremental": true,
-    "tsBuildInfoFile": "./node_modules/typescript/tsbuildinfo",
-    "noEmit": true,
-    "module": "ESNext",
-    "strict": true,
+    "target": "ES2020",
+    "useDefineForClassFields": true,
     "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
     ],
-    "jsx": "preserve",
-    "esModuleInterop": true,
+    "module": "ESNext",
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
     "moduleResolution": "bundler",
-    "types": [
-      "node",
-      "vite/client"
-    ],
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
     "paths": {
       "@/*": [
-        "./client/src/*"
-      ],
-      "@shared/*": [
-        "./shared/*"
+        "./src/*"
       ]
     }
   }
