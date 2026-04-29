@@ -335,7 +335,7 @@ function Hero() {
         <p className="mb-10 max-w-[640px] animate-fade-up delay-200"
           style={{ fontFamily:"'Barlow',sans-serif", fontWeight:500, fontSize:"clamp(1rem, 2.2vw, 1.25rem)", lineHeight:1.7, color:"rgba(240,244,255,0.75)" }}
         >
-          We are the embedded engineering partners that make your go-to-market motion actually work — fixing the data, logic, and workflows required to deploy governed agents today.
+          Embedded engineering partners who fix the data, logic, and workflows your go-to-market motion needs to deploy governed agents today.
         </p>
 
         <div className="flex flex-wrap gap-4 animate-fade-up delay-300">
@@ -345,7 +345,7 @@ function Hero() {
             onMouseEnter={e=>(e.currentTarget.style.boxShadow=`0 6px 32px rgba(245,158,11,0.55)`)}
             onMouseLeave={e=>(e.currentTarget.style.boxShadow=`0 4px 24px rgba(245,158,11,0.35)`)}
           >
-            Get in Touch <ArrowRight size={16}/>
+            Book a Working Session <ArrowRight size={16}/>
           </a>
           <a href="#how-we-work"
             className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-medium border transition-all duration-200"
