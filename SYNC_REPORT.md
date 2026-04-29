@@ -257,8 +257,62 @@ This PR introduces the full Manus application backend, which was not present in 
 
 **Checklist for reviewer:**
 
-- [ ] Confirm `drizzle-orm` 0.45.2 does not break any existing queries in `server/db.ts` / `drizzle/schema.ts`
+- [x] Confirm `drizzle-orm` 0.45.2 does not break any existing queries in `server/db.ts` / `drizzle/schema.ts` — **cleared; see Final Drizzle Review below**
 - [ ] Confirm `@builder.io/vite-plugin-jsx-loc` peer-version warning does not affect Lovable workflow
 - [ ] File follow-on issues for the 3 CodeQL `missing-rate-limiting` alerts
 - [ ] File follow-on issues for OAuth CSRF hardening and rate limiting on LLM routes
 - [ ] Confirm `.env` secrets are set correctly in the deployment environment before going live
+
+---
+
+## Final Drizzle Review
+
+*Narrow dependency-risk review of the drizzle-orm 0.44.7 → 0.45.2 bump before merge.*
+
+### 1. Files Inspected
+
+| File | Role |
+|------|------|
+| `package.json` | Confirms specifier `^0.45.2`; resolved to `0.45.2` in lockfile |
+| `pnpm-lock.yaml` | Confirms resolved version `0.45.2(mysql2@3.22.1(@types/node@24.7.0))` |
+| `drizzle/schema.ts` | All table/column definitions |
+| `drizzle/relations.ts` | Relation declarations (empty — only imports an empty object) |
+| `server/db.ts` | All query logic — the only file that actually queries the database |
+
+No other files in the repository import from `drizzle-orm` or `drizzle-orm/mysql-core`.
+
+### 2. Drizzle Usage Found
+
+**`drizzle/schema.ts`** — table definition only
+
+```
+mysqlTable, int, varchar, text, mysqlEnum, timestamp
+```
+
+All are standard column-builder primitives. No raw SQL template literals (`sql\`…\``), no `identifier()`, no `placeholder()`, no custom SQL expressions. All column names are plain string literals passed to standard helpers (e.g., `varchar("openId", { length: 64 })`).
+
+**`server/db.ts`** — three query patterns
+
+| Pattern | Code | Risk |
+|---------|------|------|
+| `eq` comparator | `eq(users.openId, openId)` | None — uses the ORM comparator, not raw SQL |
+| `db.select().from(users).where(…).limit(1)` | Standard fluent select | None |
+| `db.insert(users).values(values).onDuplicateKeyUpdate({ set: updateSet })` | Standard fluent insert/upsert | None — `updateSet` values are TypeScript-typed scalars (strings, dates, enum literals); no dynamic identifier construction |
+
+**No raw SQL found.** The codebase does not use:
+
+- `sql\`…\`` template tag
+- `sql()` helper
+- `identifier()` / `placeholder()`
+- `.execute()` / `.run()` / `.all()` / `.get()` with hand-built SQL strings
+- Any dynamic column/table name construction
+
+### 3. Code Changes Required Before Merge
+
+**None.** The escaping fix in drizzle-orm 0.45.2 (CVE: SQL injection via improperly escaped identifiers) affects only codepaths that construct SQL identifiers dynamically. This application uses no such pattern; all identifiers are static string literals compiled into the ORM's internal AST at module load time.
+
+### 4. Final Merge Recommendation
+
+> ✅ **Safe to merge**
+
+The drizzle-orm update from 0.44.7 to 0.45.2 patches an active SQL-injection CVE and introduces no breaking API changes for this codebase. The application's Drizzle usage is entirely ORM-mediated (no raw SQL, no dynamic identifier construction), so the internal escaping change has zero runtime impact on existing queries.
