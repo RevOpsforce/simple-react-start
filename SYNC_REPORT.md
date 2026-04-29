@@ -56,19 +56,23 @@ curl -s -H "Authorization: token ***" https://api.github.com/repos/RevOpsforce/o
 
 ## Source Repo Used
 
-- **Repository:** `RevOpsforce/opsforce.ai`
-- **Access result:** HTTP 403 — the agent token does not have read access to this repository.
+| Field | Value |
+|:---|:---|
+| Repository | `RevOpsforce/opsforce.ai` |
+| Access result | HTTP 403 — the agent token does not have read access to this repository |
 
 ## Destination Repo Used
 
-- **Repository:** `RevOpsforce/simple-react-start`
-- **Remote:** `https://github.com/RevOpsforce/simple-react-start`
-- **Remote verified:** ✅ confirmed before and after all steps
+| Field | Value |
+|:---|:---|
+| Repository | `RevOpsforce/simple-react-start` |
+| Remote URL | `https://github.com/RevOpsforce/simple-react-start` |
+| Remote verified | ✅ confirmed before and after all steps |
 
 ## Backup Branch / Tag Created
 
 | Item | Status | Name |
-|---|---|---|
+|:---|:---|:---|
 | Backup branch | ✅ Created locally | `backup/pre-opsforce-sync` |
 | Backup tag | ✅ Created locally | `backup/pre-opsforce-sync-tag` |
 | Push backup branch | ❌ Blocked — agent can only push the PR branch | — |
