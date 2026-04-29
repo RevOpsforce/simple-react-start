@@ -418,7 +418,7 @@ function LogoTicker() {
               />
             ) : (
               <span
-                style={{ fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:"0.88rem", letterSpacing:"0.16em", textTransform:"uppercase", color:C.slate, whiteSpace:"nowrap" }}
+                style={{ fontFamily:"'Barlow Condensed',sans-serif", fontWeight:700, fontSize:"0.88rem", letterSpacing:"0.16em", textTransform:"uppercase", color:"rgba(240,244,255,0.35)", whiteSpace:"nowrap" }}
               >
                 {logo.name}
               </span>
