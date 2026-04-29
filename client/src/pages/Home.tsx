@@ -405,9 +405,9 @@ function LogoTicker() {
                 src={logo.img}
                 alt={logo.name}
                 style={{
-                  height: logo.name === 'NYSE' ? '48px' : logo.name === 'Comcast' ? '42px' : logo.name === 'Broadcom' ? '44px' : '38px',
+                  height: '40px',
                   width:"auto",
-                  maxWidth: logo.name === 'Kaiser' || logo.name === 'The Trade Desk' ? '200px' : '180px',
+                  maxWidth: '180px',
                   objectFit:"contain",
                   opacity:0.8,
                   transition:"opacity 0.2s",
