@@ -1,13 +1,13 @@
 {
   "include": [
     "src/**/*",
-    "shared/**/*",
-    "server/**/*"
+    "shared/**/*"
   ],
   "exclude": [
     "node_modules",
     "build",
     "dist",
+    "server",
     "**/*.test.ts"
   ],
   "compilerOptions": {

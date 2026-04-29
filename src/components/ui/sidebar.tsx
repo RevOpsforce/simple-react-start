@@ -192,7 +192,7 @@ function Sidebar({
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-            } as React.CSSProperties
+            } as React.CSSProperties as any
           }
           side={side}
         >
@@ -637,7 +637,7 @@ function SidebarMenuSkeleton({
         style={
           {
             "--skeleton-width": width,
-          } as React.CSSProperties
+          } as React.CSSProperties as any
         }
       />
     </div>
