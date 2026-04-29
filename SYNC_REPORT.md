@@ -150,3 +150,20 @@ Build warnings (non-blocking):
   `backup/pre-opsforce-sync-tag` both point to the exact pre-sync commit
   `59138bc` and are preserved in the local Git history. The pre-sync state
   is fully recoverable from the Git log.
+
+---
+
+## CodeQL / Security Scan
+
+A CodeQL scan on this PR found **3 `js/missing-rate-limiting` alerts**, all
+pre-existing in the `RevOpsforce/opsforce.ai` source repo and not introduced
+by this sync:
+
+| Alert | File | Lines | Severity |
+|-------|------|-------|----------|
+| Route handler performs file system access without rate limiting | `server/_core/vite.ts` | 24–47 | Medium |
+| Route handler performs file system access without rate limiting | `server/_core/vite.ts` | 64–66 | Medium |
+| Route handler performs file system access without rate limiting | `server/index.ts`      | 22–24 | Medium |
+
+These were **not fixed** in this PR because the task requires no application
+changes beyond copying. They should be tracked as follow-on issues.
