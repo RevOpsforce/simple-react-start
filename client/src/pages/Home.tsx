@@ -387,8 +387,8 @@ function LogoTicker() {
   return (
     <section className="relative overflow-hidden" style={{ backgroundColor:"#f0f4ff", borderTop:`1px solid rgba(10,22,40,0.08)`, borderBottom:`1px solid rgba(10,22,40,0.08)`, padding:"28px 0" }}>
       {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 pointer-events-none z-10" style={{ background:`linear-gradient(90deg, #f0f4ff 0%, transparent 100%)` }}/>
-      <div className="absolute right-0 top-0 bottom-0 w-32 pointer-events-none z-10" style={{ background:`linear-gradient(270deg, #f0f4ff 0%, transparent 100%)` }}/>
+      <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 pointer-events-none z-10" style={{ background:`linear-gradient(90deg, #f0f4ff 0%, transparent 100%)` }}/>
+      <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 pointer-events-none z-10" style={{ background:`linear-gradient(270deg, #f0f4ff 0%, transparent 100%)` }}/>
 
       {/* Label centered above */}
       <div className="flex items-center justify-center gap-4 mb-5">
